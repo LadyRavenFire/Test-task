@@ -45,12 +45,9 @@ public class SpawnManager : MonoBehaviour
                 newObject.transform.SetParent(_mainCanvas.transform, false);
                 newObject.transform.position = new Vector3(10, yCoord, 0);
 
-                RightLeftMoving _rightLeftMoving = newObject.GetComponent<RightLeftMoving>();
-                _rightLeftMoving.IsLeft = false;                
+                RightLeftMoving rightLeftMoving = newObject.GetComponent<RightLeftMoving>();
+                rightLeftMoving.IsLeft = false;                
             }
-            
-
-
         }
     }
 

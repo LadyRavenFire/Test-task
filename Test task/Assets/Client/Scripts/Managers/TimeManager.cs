@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float _time;
-    // Start is called before the first frame update
+    [SerializeField] private Text _timeText;
+
     void Start()
     {
         _time = 60f;
@@ -12,6 +14,11 @@ public class TimeManager : MonoBehaviour
     void FixedUpdate()
     {
         _time = _time - Time.deltaTime;
+    }
+
+    void OnGUI()
+    {
+        _timeText.text = "Time left: " + (int)_time;
     }
 
     public float Output()

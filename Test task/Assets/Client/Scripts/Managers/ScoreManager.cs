@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private int _score;
-    // Start is called before the first frame update
+    [SerializeField] private Text _scoreText;
+
     void Start()
     {
         _score = 10;
     }
 
+    void OnGUI()
+    {
+        _scoreText.text = "Score: " + _score;
+    }
     public int Output()
     {
         return _score;
@@ -18,4 +24,6 @@ public class ScoreManager : MonoBehaviour
     {
         _score += enter;
     }
+
+   
 }
