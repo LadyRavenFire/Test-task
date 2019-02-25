@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -13,6 +12,8 @@ public class ClickManager : MonoBehaviour
     private ScoreManager _scoreManager;
     private TimeManager _timeManager;
 
+    private Slider _streakSlider;
+
     private int _streak;
 
     void Start()
@@ -22,9 +23,12 @@ public class ClickManager : MonoBehaviour
 
         _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
         _timeManager = GameObject.Find("LevelManager").GetComponent<TimeManager>();
+        _streakSlider = GameObject.Find("StreakSlider").GetComponent<Slider>();
 
         _streak = 0;
+        _streakSlider.value = _streak;
     }
+   
 
     void Update()
     {
@@ -41,6 +45,7 @@ public class ClickManager : MonoBehaviour
             if (results.Count == 0)
             {
                 _streak = 0;
+                _streakSlider.value = _streak;
             }
             else
             {
@@ -51,6 +56,7 @@ public class ClickManager : MonoBehaviour
                     {
                         _scoreManager.AddScore(1);
                         _streak += 1;
+                        _streakSlider.value = _streak;
                         break;
                     }
                 }
@@ -59,6 +65,7 @@ public class ClickManager : MonoBehaviour
                 {
                     _timeManager.AddTime(10);
                     _streak = 0;
+                    _streakSlider.value = _streak;
                 }
             }
         }

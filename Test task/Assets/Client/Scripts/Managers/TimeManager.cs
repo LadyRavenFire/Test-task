@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        _time = 60f;
+        _time = 30f;
     }
 
     void FixedUpdate()

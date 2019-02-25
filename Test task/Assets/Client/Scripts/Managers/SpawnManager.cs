@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
                 var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
 
                 newObject.transform.SetParent(_mainCanvas.transform, false);
-                newObject.transform.position = new Vector3((int)_cornerCoordinates.ScreenSpaceCorners[2].x - 10, yCoord, 0);
+                newObject.transform.position = new Vector3((int)_cornerCoordinates.ScreenSpaceCorners[2].x + (_cornerCoordinates.ScreenSpaceCorners[2].x * 0.1f), yCoord, 0);
             }
             else
             {
@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
                 var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
 
                 newObject.transform.SetParent(_mainCanvas.transform, false);
-                newObject.transform.position = new Vector3(10, yCoord, 0);
+                newObject.transform.position = new Vector3(-(_cornerCoordinates.ScreenSpaceCorners[2].x * 0.1f), yCoord, 0);
 
                 RightLeftMoving rightLeftMoving = newObject.GetComponent<RightLeftMoving>();
                 rightLeftMoving.IsLeft = false;                
