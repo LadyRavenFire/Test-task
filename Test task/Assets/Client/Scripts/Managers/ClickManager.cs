@@ -10,8 +10,10 @@ public class ClickManager : MonoBehaviour
     public PointerEventData MPointerEventData;
     public EventSystem MEventSystem;
 
-
     private ScoreManager _scoreManager;
+    private TimeManager _timeManager;
+
+    private int _streak;
 
     void Start()
     {
@@ -19,6 +21,9 @@ public class ClickManager : MonoBehaviour
         MEventSystem = GetComponent<EventSystem>();
 
         _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
+        _timeManager = GameObject.Find("LevelManager").GetComponent<TimeManager>();
+
+        _streak = 0;
     }
 
     void Update()
@@ -35,20 +40,25 @@ public class ClickManager : MonoBehaviour
 
             if (results.Count == 0)
             {
-                print("-");
-                _scoreManager.AddScore(-1);
+                _streak = 0;
             }
             else
             {
-                print("+");
+                //print("+");
                 foreach (RaycastResult result in results)
                 {
                     if (result.gameObject.name.Contains("SimpleBird"))
                     {
-                        
                         _scoreManager.AddScore(1);
+                        _streak += 1;
                         break;
                     }
+                }
+
+                if (_streak == 5)
+                {
+                    _timeManager.AddTime(10);
+                    _streak = 0;
                 }
             }
         }

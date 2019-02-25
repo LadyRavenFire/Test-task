@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
         return _time;
     }
 
-    public void AddScore(float enter)
+    public void AddTime(float enter)
     {
         _time += enter;
     }
