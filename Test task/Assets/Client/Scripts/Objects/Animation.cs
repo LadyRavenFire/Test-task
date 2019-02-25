@@ -7,6 +7,7 @@ public class Animation : MonoBehaviour
     [SerializeField] private Sprite[] _frames;
     [SerializeField] private GameObject _relative;
     [SerializeField] float framesPerSecond = 10f;
+    [SerializeField] private float _rotationY;
 
     private Image _image;
 
@@ -15,10 +16,13 @@ public class Animation : MonoBehaviour
     void Start()
     {
         _rightLeftMoving = _relative.GetComponent<RightLeftMoving>();
-        _image = gameObject.GetComponent<Image>();  
+        _image = gameObject.GetComponent<Image>();
+        _rotationY = gameObject.transform.rotation.y;
+
+        Rotation(); 
     }
 
-    // Update is called once per frame
+
     void OnGUI()
     {
         int index = (int)(Time.time * framesPerSecond) % _frames.Length;
@@ -29,9 +33,11 @@ public class Animation : MonoBehaviour
     {
         if (_rightLeftMoving.IsLeft)
         {
-            //print("lol");
-            Quaternion rotate = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y - 360, gameObject.transform.rotation.z, 0);
-            _image.transform.rotation = rotate;
+            if (_rotationY == gameObject.transform.rotation.y)
+            {
+                Quaternion rotate = new Quaternion(gameObject.transform.rotation.x, gameObject.transform.rotation.y - 360, gameObject.transform.rotation.z, 0);
+                _image.transform.rotation = rotate;
+            }        
         }
     }
 }
