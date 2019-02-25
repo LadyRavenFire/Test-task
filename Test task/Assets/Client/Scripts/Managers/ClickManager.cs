@@ -21,7 +21,7 @@ public class ClickManager : MonoBehaviour
         _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -31,20 +31,25 @@ public class ClickManager : MonoBehaviour
             
             List<RaycastResult> results = new List<RaycastResult>();
             
-            MRaycaster.Raycast(MPointerEventData, results);
-            
-            foreach (RaycastResult result in results)
-            {
-                if (result.gameObject.name.Contains("SimpleBird"))
-                {
-                    _scoreManager.AddScore(1);
-                    break;
-                }              
-            }
+            MRaycaster.Raycast(MPointerEventData, results);           
 
             if (results.Count == 0)
             {
+                print("-");
                 _scoreManager.AddScore(-1);
+            }
+            else
+            {
+                print("+");
+                foreach (RaycastResult result in results)
+                {
+                    if (result.gameObject.name.Contains("SimpleBird"))
+                    {
+                        
+                        _scoreManager.AddScore(1);
+                        break;
+                    }
+                }
             }
         }
     }
