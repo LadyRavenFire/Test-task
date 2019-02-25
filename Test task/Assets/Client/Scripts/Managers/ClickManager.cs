@@ -63,7 +63,7 @@ public class ClickManager : MonoBehaviour
 
                 if (_streak == 5)
                 {
-                    _timeManager.AddTime(10);
+                    _timeManager.AddTime(3);//TODO спавн объекта дающего время
                     _streak = 0;
                     _streakSlider.value = _streak;
                 }

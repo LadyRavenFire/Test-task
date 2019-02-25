@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     {
         _random = new Random();
         _cornerCoordinates = _mainCanvas.GetComponent<CornerCoordinates>();
-        _delay = 2f;
+        _delay = _random.Next(0,3);
     }
 
     void FixedUpdate()
@@ -27,11 +27,13 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            _delay = 2f;
+            _delay = _random.Next(0, 3);
             int leftRight = _random.Next(0, 2);
+            int borderOfScreen = (int)(_cornerCoordinates.ScreenSpaceCorners[2].y * 0.1f); //TODO калибровать значения
             if (leftRight == 0)
-            {
-                int yCoord = (int)_random.Next(0, (int)_cornerCoordinates.ScreenSpaceCorners[2].y);
+            {              
+                int yCoord = (int)_random.Next(0 + borderOfScreen, (int)_cornerCoordinates.ScreenSpaceCorners[2].y - borderOfScreen);
+                print(yCoord);
                 var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
 
                 newObject.transform.SetParent(_mainCanvas.transform, false);
@@ -39,7 +41,7 @@ public class SpawnManager : MonoBehaviour
             }
             else
             {
-                int yCoord = (int)_random.Next(0, (int)_cornerCoordinates.ScreenSpaceCorners[2].y);
+                int yCoord = (int)_random.Next(0 + borderOfScreen, (int)_cornerCoordinates.ScreenSpaceCorners[2].y - borderOfScreen); 
                 var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
 
                 newObject.transform.SetParent(_mainCanvas.transform, false);

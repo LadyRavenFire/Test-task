@@ -10,7 +10,7 @@ public class RightLeftMoving : MonoBehaviour
     void Start()
     {
         _cornerCoordinates = GameObject.Find("MainCanvas").GetComponent<CornerCoordinates>();
-        HorizontalSpeed = _cornerCoordinates.ScreenSpaceCorners[3].x/1000;
+        HorizontalSpeed = _cornerCoordinates.ScreenSpaceCorners[3].x/250;
     }
 
     void FixedUpdate()
