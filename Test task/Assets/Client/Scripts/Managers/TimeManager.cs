@@ -14,6 +14,11 @@ public class TimeManager : MonoBehaviour
     void FixedUpdate()
     {
         _time = _time - Time.deltaTime;
+
+        if (_time < 0)
+        {
+            Application.Quit();
+        }   //TODO переделать
     }
 
     void OnGUI()

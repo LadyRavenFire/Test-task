@@ -15,6 +15,14 @@ public class ScoreManager : MonoBehaviour
     {
         _scoreText.text = "Score: " + _score;
     }
+
+    void Update() //TODO переделать
+    {
+        if (_score < 0)
+        {
+            Application.Quit();
+        }
+    }
     public int Output()
     {
         return _score;
