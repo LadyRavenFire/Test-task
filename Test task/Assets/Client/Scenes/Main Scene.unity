@@ -270,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437913107}
   m_Layer: 0
-  m_Name: System
+  m_Name: Scoring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 2082629329}
   - component: {fileID: 2082629333}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,3 +527,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1673d90868ccfc4a9d5f06e9c2b97c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RectTransform: {fileID: 0}
+  ScreenSpaceCorners: []
