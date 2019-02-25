@@ -28,14 +28,29 @@ public class SpawnManager : MonoBehaviour
         else
         {
             _delay = 2f;
+            int leftRight = _random.Next(0, 2);
+            if (leftRight == 0)
+            {
+                int yCoord = (int)_random.Next(0, (int)_cornerCoordinates.ScreenSpaceCorners[2].y);
+                var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
 
-            int lol = (int)_random.Next(0, (int)_cornerCoordinates.ScreenSpaceCorners[2].y);
-            print(_random.Next(0,2));
+                newObject.transform.SetParent(_mainCanvas.transform, false);
+                newObject.transform.position = new Vector3((int)_cornerCoordinates.ScreenSpaceCorners[2].x - 10, yCoord, 0);
+            }
+            else
+            {
+                int yCoord = (int)_random.Next(0, (int)_cornerCoordinates.ScreenSpaceCorners[2].y);
+                var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
 
-            var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
+                newObject.transform.SetParent(_mainCanvas.transform, false);
+                newObject.transform.position = new Vector3(10, yCoord, 0);
 
-            newObject.transform.SetParent(_mainCanvas.transform, false);
-            newObject.transform.position = new Vector3(1900, lol, 0);
+                RightLeftMoving _rightLeftMoving = newObject.GetComponent<RightLeftMoving>();
+                _rightLeftMoving.IsLeft = false;                
+            }
+            
+
+
         }
     }
 
