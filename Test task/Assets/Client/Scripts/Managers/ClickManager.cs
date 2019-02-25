@@ -65,7 +65,7 @@ public class ClickManager : MonoBehaviour
                 {
                     _timeManager.AddTime(3);//TODO спавн объекта дающего время
                     _streak = 0;
-                    _streakSlider.value = _streak;
+                    _streakSlider.value = _streak; //TODO сделать полоску такой, что бы её нельзя было двигать руками
                 }
             }
         }
