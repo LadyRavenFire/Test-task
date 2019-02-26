@@ -6,9 +6,12 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int _score;
     [SerializeField] private Text _scoreText;
 
+    private Lose _lose;
+
     void Start()
     {
         _score = 10;
+        _lose = GameObject.Find("LevelManager").GetComponent<Lose>();
     }
 
     void OnGUI()
@@ -20,7 +23,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (_score < 0)
         {
-            Application.Quit();
+            _lose.LoseGame(_score);
         }
     }
     public int Output()

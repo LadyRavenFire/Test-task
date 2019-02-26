@@ -6,9 +6,14 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float _time;
     [SerializeField] private Text _timeText;
 
+    private ScoreManager _scoreManager;
+    private Lose _lose;
+
     void Start()
     {
         _time = 30f;
+        _lose = GameObject.Find("LevelManager").GetComponent<Lose>();
+        _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
     }
 
     void FixedUpdate()
@@ -17,8 +22,8 @@ public class TimeManager : MonoBehaviour
 
         if (_time < 0)
         {
-            Application.Quit();
-        }   //TODO переделать
+            _lose.LoseGame(_scoreManager.Output());
+        }   
     }
 
     void OnGUI()

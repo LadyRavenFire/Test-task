@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7995533745653642758}
   m_Layer: 5
   m_Name: SimpleBird
-  m_TagString: Untagged
+  m_TagString: Deletable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeft: 1
-  _horizontalSpeed: 0
-  _verticalSpeed: 0
+  HorizontalSpeed: 0
+  VerticalSpeed: 0
 --- !u!114 &7995533745653642758
 MonoBehaviour:
   m_ObjectHideFlags: 0

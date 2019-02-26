@@ -12,6 +12,7 @@ public class ClickManager : MonoBehaviour
     private ScoreManager _scoreManager;
     private TimeManager _timeManager;
     private SpawnManager _spawnManager;
+    private ClickAudioManager _clickAudioManager;
 
     private Slider _streakSlider;
 
@@ -26,6 +27,7 @@ public class ClickManager : MonoBehaviour
         _timeManager = GameObject.Find("LevelManager").GetComponent<TimeManager>();
         _streakSlider = GameObject.Find("StreakSlider").GetComponent<Slider>();
         _spawnManager = GameObject.Find("LevelManager").GetComponent<SpawnManager>();
+        _clickAudioManager = GameObject.Find("SoundManager").GetComponent<ClickAudioManager>();
 
         _streak = 0;
         _streakSlider.value = _streak;
@@ -42,40 +44,56 @@ public class ClickManager : MonoBehaviour
             
             List<RaycastResult> results = new List<RaycastResult>();
             
-            MRaycaster.Raycast(MPointerEventData, results);           
+            MRaycaster.Raycast(MPointerEventData, results);
 
-            if (results.Count == 1)
+            bool IsBird = false; //TODO переделать на что-то другое, сейчас костыль
+            bool IsClock = false;
+
+            foreach (RaycastResult result in results)
             {
+                if (result.gameObject.name.Contains("SimpleBird"))
+                {
+                    print("bird");
+                    IsBird = true;
+                    break;
+                }
+
+                if (result.gameObject.name.Contains("Clock"))
+                {
+                    print("clock");
+                    IsClock = true;
+                    break;
+                }
+            }
+
+            if (IsBird)
+            {
+                _scoreManager.AddScore(1);
+                _streak += 1;
+                _streakSlider.value = _streak;
+                _clickAudioManager.ClickOnBird();
+            }
+
+            if (IsClock)
+            {
+                _timeManager.AddTime(3);
+                _clickAudioManager.ClickOnClock();
+            }
+
+            if (!IsClock && !IsBird)
+            {
+                print("wtf");
                 _streak = 0;
                 _streakSlider.value = _streak;
             }
-            else
+
+            if (_streak == 5)
             {
-                //print("+");
-                foreach (RaycastResult result in results)
-                {
-                    if (result.gameObject.name.Contains("SimpleBird"))
-                    {
-                        _scoreManager.AddScore(1);
-                        _streak += 1;
-                        _streakSlider.value = _streak;
-                        break; 
-                    }
-
-                    if (result.gameObject.name.Contains("Clock"))
-                    {
-                        _timeManager.AddTime(3);
-                        break;
-                    }
-                }
-
-                if (_streak == 5)
-                {
-                    _spawnManager.SpawnClock();
-                    _streak = 0;
-                    _streakSlider.value = _streak; //TODO сделать полоску такой, что бы её нельзя было двигать руками
-                }
+                _spawnManager.SpawnClock();
+                _streak = 0;
+                _streakSlider.value = _streak; 
             }
+            
         }
     }
 }
