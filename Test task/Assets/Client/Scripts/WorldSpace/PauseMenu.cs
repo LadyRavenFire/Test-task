@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Button _pauseMenuButton;
 
-    [SerializeField] private GameObject _pauseMenuPanel;
+    public GameObject _pauseMenuPanel;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _retryButton;
     [SerializeField] private Button _resumeButton;

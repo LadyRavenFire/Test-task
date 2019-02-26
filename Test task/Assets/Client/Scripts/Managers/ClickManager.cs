@@ -13,6 +13,7 @@ public class ClickManager : MonoBehaviour
     private TimeManager _timeManager;
     private SpawnManager _spawnManager;
     private ClickAudioManager _clickAudioManager;
+    private PauseMenu _pauseMenu;
 
     private Slider _streakSlider;
 
@@ -28,6 +29,7 @@ public class ClickManager : MonoBehaviour
         _streakSlider = GameObject.Find("StreakSlider").GetComponent<Slider>();
         _spawnManager = GameObject.Find("LevelManager").GetComponent<SpawnManager>();
         _clickAudioManager = GameObject.Find("SoundManager").GetComponent<ClickAudioManager>();
+        _pauseMenu = GameObject.Find("LevelManager").GetComponent<PauseMenu>();
 
         _streak = 0;
         _streakSlider.value = _streak;
@@ -36,7 +38,7 @@ public class ClickManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //TODO переделать на axis
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !_pauseMenu._pauseMenuPanel.activeSelf) //TODO переделать на axis
         {
 
             MPointerEventData = new PointerEventData(MEventSystem);
