@@ -54,12 +54,20 @@ public class ClickManager : MonoBehaviour
             {
                 if (result.gameObject.name.Contains("SimpleBird"))
                 {
+                    result.gameObject.GetComponent<DeleteOnClick>().Destroy();
+                    _scoreManager.AddScore(1);
+                    _streak += 1;
+                    _streakSlider.value = _streak;
+                    _clickAudioManager.ClickOnBird();
                     IsBird = true;
                     break;
                 }
 
                 if (result.gameObject.name.Contains("Clock"))
                 {
+                    result.gameObject.GetComponent<DeleteOnClick>().Destroy();
+                    _timeManager.AddTime(3);
+                    _clickAudioManager.ClickOnClock();
                     IsClock = true;
                     break;
                 }
@@ -69,20 +77,6 @@ public class ClickManager : MonoBehaviour
                     IsButton = true;
                     break;
                 }
-            }
-
-            if (IsBird)
-            {
-                _scoreManager.AddScore(1);
-                _streak += 1;
-                _streakSlider.value = _streak;
-                _clickAudioManager.ClickOnBird();
-            }
-
-            if (IsClock)
-            {
-                _timeManager.AddTime(3);
-                _clickAudioManager.ClickOnClock();
             }
 
             if (!IsClock && !IsBird && !IsButton)
