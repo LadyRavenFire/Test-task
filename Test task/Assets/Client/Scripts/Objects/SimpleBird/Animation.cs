@@ -27,7 +27,7 @@ public class Animation : MonoBehaviour
     }
 
 
-    void OnGUI()
+    void FixedUpdate()
     {
         int index = (int)(Time.time * framesPerSecond) % _frames.Length;
         _image.sprite = _frames[index];

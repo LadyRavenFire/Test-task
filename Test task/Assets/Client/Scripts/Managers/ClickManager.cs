@@ -11,6 +11,7 @@ public class ClickManager : MonoBehaviour
 
     private ScoreManager _scoreManager;
     private TimeManager _timeManager;
+    private SpawnManager _spawnManager;
 
     private Slider _streakSlider;
 
@@ -24,6 +25,7 @@ public class ClickManager : MonoBehaviour
         _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
         _timeManager = GameObject.Find("LevelManager").GetComponent<TimeManager>();
         _streakSlider = GameObject.Find("StreakSlider").GetComponent<Slider>();
+        _spawnManager = GameObject.Find("LevelManager").GetComponent<SpawnManager>();
 
         _streak = 0;
         _streakSlider.value = _streak;
@@ -57,13 +59,19 @@ public class ClickManager : MonoBehaviour
                         _scoreManager.AddScore(1);
                         _streak += 1;
                         _streakSlider.value = _streak;
+                        break; //TODO возможная проблема в тыканье бонус + птица
+                    }
+
+                    if (result.gameObject.name.Contains("Clock"))
+                    {
+                        _timeManager.AddTime(3);
                         break;
                     }
                 }
 
                 if (_streak == 5)
                 {
-                    _timeManager.AddTime(3);//TODO спавн объекта дающего время
+                    _spawnManager.SpawnClock();
                     _streak = 0;
                     _streakSlider.value = _streak; //TODO сделать полоску такой, что бы её нельзя было двигать руками
                 }

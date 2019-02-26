@@ -5,6 +5,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject _simpleObject;
     [SerializeField] private GameObject _boomEffect;
+    [SerializeField] private GameObject _clock;
 
 
     [SerializeField] private Canvas _mainCanvas;
@@ -61,6 +62,13 @@ public class SpawnManager : MonoBehaviour
         var newObject = Instantiate(_boomEffect, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
         newObject.transform.position = new Vector3(place.x, place.y, 0);
+    }
+
+    public void SpawnClock()
+    {
+        var newObject = Instantiate(_clock, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
+        newObject.transform.SetParent(_mainCanvas.transform, false);
+        newObject.transform.position = new Vector3(_random.Next(0,Screen.width), _random.Next(0, Screen.height), 0);
     }
 
     

@@ -775,6 +775,7 @@ MonoBehaviour:
     type: 3}
   _boomEffect: {fileID: 2115036805735369480, guid: 94dd9f1a8e6d51d44a5fab271a94afca,
     type: 3}
+  _clock: {fileID: 3700544116273853092, guid: bb63d4e663297244aacebfe0aac15146, type: 3}
   _mainCanvas: {fileID: 2082629331}
   _cornerCoordinates: {fileID: 0}
 --- !u!114 &1437913109
