@@ -34,9 +34,8 @@ public class ClickManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //TODO переделать на axis
+        if (Input.GetButtonDown("Fire1")) //TODO переделать на axis
         {
-
             MPointerEventData = new PointerEventData(MEventSystem);
             MPointerEventData.position = Input.mousePosition;
             
