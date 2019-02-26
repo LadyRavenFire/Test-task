@@ -62,6 +62,7 @@ public class Lose : MonoBehaviour
 
     void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 

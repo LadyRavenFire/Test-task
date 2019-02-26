@@ -13,7 +13,7 @@ public class DeleteOnClick : MonoBehaviour,  IPointerClickHandler
         _spawnManager = GameObject.Find("LevelManager").GetComponent<SpawnManager>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)//TODO сделать через downclick handler.... РЕАЛИЗОВАТЬ ДЕСТРОЙ КАК ПАБЛИК
     {
         _spawnManager.SpawnBoom(Input.mousePosition);
         Destroy(gameObject);

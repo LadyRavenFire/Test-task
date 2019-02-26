@@ -48,6 +48,7 @@ public class ClickManager : MonoBehaviour
 
             bool IsBird = false; //TODO переделать на что-то другое, сейчас костыль
             bool IsClock = false;
+            bool IsButton = false;
 
             foreach (RaycastResult result in results)
             {
@@ -60,6 +61,12 @@ public class ClickManager : MonoBehaviour
                 if (result.gameObject.name.Contains("Clock"))
                 {
                     IsClock = true;
+                    break;
+                }
+
+                if (result.gameObject.name.Contains("Button"))
+                {
+                    IsButton = true;
                     break;
                 }
             }
@@ -78,7 +85,7 @@ public class ClickManager : MonoBehaviour
                 _clickAudioManager.ClickOnClock();
             }
 
-            if (!IsClock && !IsBird)
+            if (!IsClock && !IsBird && !IsButton)
             {
                 _streak = 0;
                 _streakSlider.value = _streak;
