@@ -15,9 +15,9 @@ public class DeleteOnClick : MonoBehaviour,  IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //TODO красивый эффект на взрыв
-
         _spawnManager.SpawnBoom(Input.mousePosition);
         Destroy(gameObject);
     }
+
+    //TODO отдельный скрипт для других эффектов? генератор эффектов?
 }

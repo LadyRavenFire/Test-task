@@ -59,7 +59,7 @@ public class ClickManager : MonoBehaviour
                         _scoreManager.AddScore(1);
                         _streak += 1;
                         _streakSlider.value = _streak;
-                        break; //TODO возможная проблема в тыканье бонус + птица
+                        break; 
                     }
 
                     if (result.gameObject.name.Contains("Clock"))
