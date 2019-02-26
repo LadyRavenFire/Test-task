@@ -44,7 +44,7 @@ public class ClickManager : MonoBehaviour
             
             MRaycaster.Raycast(MPointerEventData, results);           
 
-            if (results.Count == 0)
+            if (results.Count == 1)
             {
                 _streak = 0;
                 _streakSlider.value = _streak;
