@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Lose : MonoBehaviour
@@ -61,7 +62,7 @@ public class Lose : MonoBehaviour
 
     void MainMenu()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public bool IsActive()

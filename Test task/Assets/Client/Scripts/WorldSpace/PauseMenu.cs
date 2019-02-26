@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -18,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
 
-        _pauseMenuButton.onClick.AddListener(OpenPauseMenu);
+        _pauseMenuButton.onClick.AddListener(PressPauseMenu);
         _resumeButton.onClick.AddListener(Resume);
         _retryButton.onClick.AddListener(Retry);
         _mainMenuButton.onClick.AddListener(MainMenu);
@@ -45,6 +46,18 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    void PressPauseMenu()
+    {
+        if (_pauseMenuPanel.activeSelf == false)
+        {
+            OpenPauseMenu();
+        }
+        else
+        {
+            Resume();
+        }
+    }
+
     void OpenPauseMenu()
     {
         Time.timeScale = 0f;
@@ -60,7 +73,7 @@ public class PauseMenu : MonoBehaviour
 
     void MainMenu()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     void Retry() 
