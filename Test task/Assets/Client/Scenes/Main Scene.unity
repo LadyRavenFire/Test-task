@@ -2067,6 +2067,7 @@ MonoBehaviour:
   _resumeButton: {fileID: 1916675366}
   _scoreManager: {fileID: 1437913110}
   _timeManager: {fileID: 1437913109}
+  _Lose: {fileID: 1437913111}
 --- !u!1 &1452881155
 GameObject:
   m_ObjectHideFlags: 0

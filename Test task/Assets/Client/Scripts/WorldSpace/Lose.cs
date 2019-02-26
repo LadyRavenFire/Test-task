@@ -63,5 +63,10 @@ public class Lose : MonoBehaviour
     {
 
     }
+
+    public bool IsActive()
+    {
+        return _losePanel.activeSelf;
+    }
     
 }

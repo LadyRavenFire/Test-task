@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
 
     public ScoreManager _scoreManager;
     public TimeManager _timeManager;
+    public Lose _Lose;
 
     void Start()
     {
@@ -24,6 +25,24 @@ public class PauseMenu : MonoBehaviour
         
 
         _pauseMenuPanel.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_pauseMenuPanel.activeSelf == false && !_Lose.IsActive())
+            {
+                OpenPauseMenu();
+            }
+            else
+            {
+                if (!_Lose.IsActive())
+                {
+                    Resume();
+                }
+            }
+        }
     }
 
     void OpenPauseMenu()
