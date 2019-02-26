@@ -53,14 +53,12 @@ public class ClickManager : MonoBehaviour
             {
                 if (result.gameObject.name.Contains("SimpleBird"))
                 {
-                    print("bird");
                     IsBird = true;
                     break;
                 }
 
                 if (result.gameObject.name.Contains("Clock"))
                 {
-                    print("clock");
                     IsClock = true;
                     break;
                 }
@@ -82,7 +80,6 @@ public class ClickManager : MonoBehaviour
 
             if (!IsClock && !IsBird)
             {
-                print("wtf");
                 _streak = 0;
                 _streakSlider.value = _streak;
             }
