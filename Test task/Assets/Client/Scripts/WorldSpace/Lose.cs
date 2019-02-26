@@ -10,9 +10,16 @@ public class Lose : MonoBehaviour
     [SerializeField] private Text _bestScoreText;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _retryButton;
-   
+
+    public ScoreManager _scoreManager;
+    public TimeManager _timeManager;
+
     void Start()
     {
+
+        _retryButton.onClick.AddListener(Retry);
+        _mainMenuButton.onClick.AddListener(MainMenu);
+
         _losePanel.SetActive(false);
     }
 
@@ -21,6 +28,7 @@ public class Lose : MonoBehaviour
         Time.timeScale = 0f;
         DeleteObjects();
         _losePanel.SetActive(true);
+        _losePanel.transform.SetAsLastSibling();
         _yourScoreText.text = "Your score: " + score;
         if (PlayerPrefs.GetInt("BestScore") < score)
         {
@@ -37,6 +45,23 @@ public class Lose : MonoBehaviour
         {
             Destroy(objective);
         }
+    }
+
+    void Retry()
+    {
+        DeleteObjects();
+
+        _scoreManager.SetStartScore();
+        _timeManager.SetStartTime();
+
+        Time.timeScale = 1f;
+
+        _losePanel.SetActive(false);
+    }
+
+    void MainMenu()
+    {
+
     }
     
 }

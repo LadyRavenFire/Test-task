@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        _score = 10;
+        SetStartScore();
         _lose = GameObject.Find("LevelManager").GetComponent<Lose>();
     }
 
@@ -36,5 +36,8 @@ public class ScoreManager : MonoBehaviour
         _score += enter;
     }
 
-   
+    public void SetStartScore()
+    {
+        _score = 10;
+    }
 }

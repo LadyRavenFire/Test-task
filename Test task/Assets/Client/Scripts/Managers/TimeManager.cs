@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        _time = 30f;
+        SetStartTime();
         _lose = GameObject.Find("LevelManager").GetComponent<Lose>();
         _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
     }
@@ -39,5 +39,10 @@ public class TimeManager : MonoBehaviour
     public void AddTime(float enter)
     {
         _time += enter;
+    }
+
+    public void SetStartTime()
+    {
+        _time = 30f;
     }
 }
