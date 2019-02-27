@@ -54,7 +54,7 @@ public class SpawnManager : MonoBehaviour
             {
                 if (Random.Next(0, 4) == 0)
                 {
-                    SpawnLeftRightMovingObject(_simpleBird, (int)(Screen.height * 0.12f));
+                    SpawnLeftRightMovingObject(_simpleBird, (int)(Screen.height * 0.13f));
                 }
                 if (Random.Next(0, 3) == 0)
                 {
