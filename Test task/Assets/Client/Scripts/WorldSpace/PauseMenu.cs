@@ -80,7 +80,6 @@ public class PauseMenu : MonoBehaviour
     void Retry() 
     {
         DeleteObjects();
-        
         _scoreManager.SetStartScore();
         _timeManager.SetStartTime();
 
@@ -90,6 +89,7 @@ public class PauseMenu : MonoBehaviour
     void DeleteObjects()
     {
         var objects = GameObject.FindGameObjectsWithTag("Deletable");
+        GameObject.Find("MainCanvas").GetComponent<ClickManager>().DeleteStreak();
 
         foreach (var objective in objects)
         {

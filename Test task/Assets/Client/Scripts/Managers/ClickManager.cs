@@ -123,14 +123,12 @@ public class ClickManager : MonoBehaviour
             if (!IsOnClicable)
             {
                 DeleteStreak();
-                _streakSlider.value = _streak;
             }
 
             if (_streak == 5)
             {
                 _spawnManager.SpawnClock();
                 DeleteStreak();
-                _streakSlider.value = _streak; 
             }
             
         }
@@ -139,5 +137,6 @@ public class ClickManager : MonoBehaviour
     public void DeleteStreak()
     {
         _streak = 0;
+        _streakSlider.value = _streak;
     }
 }
