@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private int _score;
-    [SerializeField] private Text _scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
 
     private Lose _lose;
 

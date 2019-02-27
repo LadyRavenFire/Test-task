@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float _time;
-    [SerializeField] private Text _timeText;
+    [SerializeField] private TextMeshProUGUI _timeText;
 
     private ScoreManager _scoreManager;
     private Lose _lose;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -7,8 +8,8 @@ public class Lose : MonoBehaviour
 
     [SerializeField] private GameObject _losePanel;
     [SerializeField] private GameObject _loseMenuPanel;
-    [SerializeField] private Text _yourScoreText;
-    [SerializeField] private Text _bestScoreText;
+    [SerializeField] private TextMeshProUGUI _yourScoreText;
+    [SerializeField] private TextMeshProUGUI _bestScoreText;
     [SerializeField] private Button _mainMenuButton;
     [SerializeField] private Button _retryButton;
 
