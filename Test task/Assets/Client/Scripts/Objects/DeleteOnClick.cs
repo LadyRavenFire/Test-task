@@ -17,6 +17,5 @@ public class DeleteOnClick : MonoBehaviour
         _spawnManager.SpawnBoom(Input.mousePosition);
         Destroy(gameObject);
     }
-
-    //TODO отдельный скрипт для других эффектов? генератор эффектов?
+    
 }

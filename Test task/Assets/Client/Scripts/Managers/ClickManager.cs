@@ -38,7 +38,7 @@ public class ClickManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !_pauseMenu._pauseMenuPanel.activeSelf) //TODO переделать на axis
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !_pauseMenu._pauseMenuPanel.activeSelf)
         {
 
             MPointerEventData = new PointerEventData(MEventSystem);

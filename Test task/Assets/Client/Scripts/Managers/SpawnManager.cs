@@ -47,7 +47,7 @@ public class SpawnManager : MonoBehaviour
                 SpawnLeftRightMovingObject(_simpleBird, (int)(Screen.height * 0.12f));
                 if (Random.Next(0, 4) == 0)
                 {
-                    SpawnGhost();
+                    SpawnStaticObject(_ghost, 0.3f);
                 }
             }
             else if(score>=30)
@@ -58,19 +58,19 @@ public class SpawnManager : MonoBehaviour
                 }
                 if (Random.Next(0, 3) == 0)
                 {
-                    SpawnGhost();
+                    SpawnStaticObject(_ghost, 0.3f);
                 }
                 SpawnLeftRightMovingObject(_gourgule, (int)(Screen.height * 0.15f));
             }
 
             if (Random.Next(0, 10) == 0)
             {
-                SpawnMoreTime();
+                SpawnStaticObject(_moreTime, 0.1f); 
             }
 
             if (Random.Next(0, 50)==0)     
             {
-                SpawnTimeStopper();
+                SpawnStaticObject(_timeStopper, 0.1f);
             }
         }
     }
@@ -79,9 +79,9 @@ public class SpawnManager : MonoBehaviour
     {
         _delay = Random.Next(0, 3);
         int leftRight = Random.Next(0, 2);
-        int borderOfScreen = BorderOfScreen; //TODO калибровать значения
+        int borderOfScreen = BorderOfScreen; 
 
-        int yCoord = (int)Random.Next(0 + borderOfScreen, Screen.height - borderOfScreen); //TODO ScreenWidthm, ScreenHeight.
+        int yCoord = (int)Random.Next(0 + borderOfScreen, Screen.height - borderOfScreen);
         var newObject = Instantiate(Object, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
 
@@ -104,7 +104,17 @@ public class SpawnManager : MonoBehaviour
         newObject.transform.position = new Vector3(place.x, place.y, 0);
     }
 
-    public void SpawnClock() //TODO рефаторнуть и свернуть в одну функцию все ниже
+    public void SpawnStaticObject(GameObject Object, float border)
+    {
+        var newObject = Instantiate(Object, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
+        newObject.transform.SetParent(_mainCanvas.transform, false);
+        newObject.transform.position = new Vector3(
+            Random.Next((int)(Screen.width * border), Screen.width - (int)(Screen.width * border)),
+            Random.Next((int)(Screen.height * border), Screen.height - (int)(Screen.height * border)),
+            0);
+    }
+
+    public void SpawnClock()
     {
         var newObject = Instantiate(_clock, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
@@ -113,36 +123,5 @@ public class SpawnManager : MonoBehaviour
             Random.Next((int)(Screen.height*0.1f), Screen.height-(int)(Screen.height * 0.1f)), 
             0);
     }
-
-    public void SpawnGhost()
-    {
-        var newObject = Instantiate(_ghost, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
-        newObject.transform.SetParent(_mainCanvas.transform, false);
-        newObject.transform.position = new Vector3(
-            Random.Next((int)(Screen.width * 0.3f), Screen.width - (int)(Screen.width * 0.3f)),
-            Random.Next((int)(Screen.height * 0.3f), Screen.height - (int)(Screen.height * 0.3f)),
-            0);
-    }
-
-    public void SpawnTimeStopper()
-    {
-        var newObject = Instantiate(_timeStopper, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
-        newObject.transform.SetParent(_mainCanvas.transform, false);
-        newObject.transform.position = new Vector3(
-            Random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
-            Random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
-            0);
-    }
-
-    public void SpawnMoreTime()
-    {
-        var newObject = Instantiate(_moreTime, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
-        newObject.transform.SetParent(_mainCanvas.transform, false);
-        newObject.transform.position = new Vector3(
-            Random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
-            Random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
-            0);
-    }
-   
     
 }

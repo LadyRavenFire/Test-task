@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
         _scoreText.text = "Score: " + _score;
     }
 
-    void Update() //TODO переделать
+    void Update()
     {
         if (_score < 0)
         {
