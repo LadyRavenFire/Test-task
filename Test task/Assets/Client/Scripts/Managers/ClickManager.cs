@@ -50,6 +50,11 @@ public class ClickManager : MonoBehaviour
 
             bool IsOnClicable = false;
 
+            if (Time.timeScale == 0f)
+            {
+                IsOnClicable = true;
+            }
+
             foreach (RaycastResult result in results)
             {
                 if (result.gameObject.name.Contains("SimpleBird"))
@@ -62,6 +67,7 @@ public class ClickManager : MonoBehaviour
                     IsOnClicable = true;
                     break;
                 }
+               
 
                 if (result.gameObject.name.Contains("Clock"))
                 {
@@ -87,6 +93,12 @@ public class ClickManager : MonoBehaviour
                 {
                     IsOnClicable = true;
                     break;
+                }
+
+                if (result.gameObject.name.Contains("Ghost"))
+                {
+                    Lose _lose = GameObject.Find("LevelManager").GetComponent<Lose>();
+                    _lose.LoseGame(_scoreManager.Output());
                 }
             }
 

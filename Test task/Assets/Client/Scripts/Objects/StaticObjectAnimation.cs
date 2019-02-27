@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ClockAnimation : MonoBehaviour
+public class StaticObjectAnimation : MonoBehaviour
 {
     [SerializeField] private Sprite[] _frames;
     [SerializeField] float framesPerSecond = 10f;

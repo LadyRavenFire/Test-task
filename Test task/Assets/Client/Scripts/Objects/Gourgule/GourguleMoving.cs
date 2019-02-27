@@ -7,10 +7,10 @@ public class GourguleMoving : MonoBehaviour
 
     void Start()
     {
-        HorizontalSpeed = Screen.width / ScalerOfSpeed; //TODO сделать синусоидное движение мыфки
+        HorizontalSpeed = Screen.width / ScalerOfSpeed; 
     }
 
-    void FixedUpdate()
+    void FixedUpdate()//TODO сделать синусоидное движение мыфки
     {
         if (gameObject.GetComponent<IsLeftMoving>().IsLeft)
         {
