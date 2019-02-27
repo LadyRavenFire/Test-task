@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button _quitButton;
     [SerializeField] private Button _recordButton;
 
-    [SerializeField] private Button _backButton;
+    [SerializeField] private Button _backFromRecordButton;
 
     [SerializeField] private GameObject _mainMenuPanel;
     [SerializeField] private GameObject _recordPanel;
@@ -20,38 +20,60 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private RawImage _backgroundRawImage;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
+
+    [SerializeField] private GameObject _bestiaryPanel;
+    [SerializeField] private Button _backFromBestriaryButton;
+    [SerializeField] private Button _goToBestiaryButton;
     
     void Start()
     {
         _playButton.onClick.AddListener(Play);
         _quitButton.onClick.AddListener(Quit);
         _recordButton.onClick.AddListener(ShowRecord);
+        _goToBestiaryButton.onClick.AddListener(ShowBestiary);
+        _backFromBestriaryButton.onClick.AddListener(BackFromBestiary);
+        
 
         _scoreText.text = "Best score: " + PlayerPrefs.GetInt("BestScore");
-        _backButton.onClick.AddListener(BackToMainMenu);
+        _backFromRecordButton.onClick.AddListener(BackFromRecord);
         _recordPanel.SetActive(false);
+        _bestiaryPanel.SetActive(false);
     }
 
-    private void BackToMainMenu()
+    private void BackFromRecord()
     {
         _recordPanel.SetActive(false);
         _mainMenuPanel.SetActive(true);
         _backgroundRawImage.texture = _mainMenuImage;
     }
 
-    void Play()
+    private void ShowBestiary()
+    {
+        _bestiaryPanel.SetActive(true);
+        _mainMenuPanel.SetActive(false);
+        _backgroundRawImage.texture = _recordSprite;
+    }
+
+    private void BackFromBestiary()
+    {
+        _bestiaryPanel.SetActive(false);
+        _mainMenuPanel.SetActive(true);
+        _backgroundRawImage.texture = _mainMenuImage;
+    }
+
+    private void Play()
     {
         SceneManager.LoadScene(1);
     }
 
-    void ShowRecord()
+    private void ShowRecord()
     {
         _recordPanel.SetActive(true);
         _mainMenuPanel.SetActive(false);
         _backgroundRawImage.texture = _recordSprite;
     }   
 
-    void Quit()
+    private void Quit()
     {
         Application.Quit();
     }
