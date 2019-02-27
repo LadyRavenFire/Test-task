@@ -3,13 +3,9 @@ using UnityEngine.UI;
 
 public class Animation : MonoBehaviour
 {
-
-#pragma warning disable 649
+    
     [SerializeField] private Sprite[] _frames;
-#pragma warning restore 649
-#pragma warning disable 649
     [SerializeField] private GameObject _relative;
-#pragma warning restore 649
     [SerializeField] float framesPerSecond;
     [SerializeField] private float _rotationY;
 
