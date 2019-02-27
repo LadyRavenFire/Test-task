@@ -48,9 +48,7 @@ public class ClickManager : MonoBehaviour
             
             MRaycaster.Raycast(MPointerEventData, results);
 
-            bool IsBird = false; //TODO переделать на что-то другое, сейчас костыль
-            bool IsClock = false;
-            bool IsButton = false;
+            bool IsOnClicable = false;
 
             foreach (RaycastResult result in results)
             {
@@ -61,7 +59,7 @@ public class ClickManager : MonoBehaviour
                     _streak += 1;
                     _streakSlider.value = _streak;
                     _clickAudioManager.ClickOnBird();
-                    IsBird = true;
+                    IsOnClicable = true;
                     break;
                 }
 
@@ -70,18 +68,29 @@ public class ClickManager : MonoBehaviour
                     result.gameObject.GetComponent<DeleteOnClick>().Destroy();
                     _timeManager.AddTime(3);
                     _clickAudioManager.ClickOnClock();
-                    IsClock = true;
+                    IsOnClicable = true;
+                    break;
+                }
+
+                if (result.gameObject.name.Contains("Gourgule"))
+                {
+                    result.gameObject.GetComponent<DeleteOnClick>().Destroy();
+                    _scoreManager.AddScore(2);
+                    _streak += 1;
+                    _streakSlider.value = _streak;
+                    _clickAudioManager.ClickOnBird();
+                    IsOnClicable = true;
                     break;
                 }
 
                 if (result.gameObject.name.Contains("Button"))
                 {
-                    IsButton = true;
+                    IsOnClicable = true;
                     break;
                 }
             }
 
-            if (!IsClock && !IsBird && !IsButton)
+            if (!IsOnClicable)
             {
                 _streak = 0;
                 _streakSlider.value = _streak;

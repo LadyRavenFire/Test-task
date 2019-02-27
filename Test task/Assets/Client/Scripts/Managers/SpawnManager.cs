@@ -3,14 +3,16 @@ using Random = System.Random;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _simpleObject;
+    [SerializeField] private GameObject _simpleBird;
     [SerializeField] private GameObject _boomEffect;
     [SerializeField] private GameObject _clock;
+    [SerializeField] private GameObject _gourgule;
+
+    private ScoreManager _scoreManager;
 
 
     [SerializeField] private Canvas _mainCanvas;
-
-    [SerializeField] private CornerCoordinates _cornerCoordinates;
+    
     private Random _random;
 
     private float _delay;
@@ -18,8 +20,8 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
         _random = new Random();
-        _cornerCoordinates = _mainCanvas.GetComponent<CornerCoordinates>();
         _delay = _random.Next(0,3);
     }
 
@@ -31,18 +33,26 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            SpawnSimpleBird();
+            if (_scoreManager.Output()<30)
+            {
+
+                SpawnLeftRightMovingObject(_simpleBird, (int)(Screen.height * 0.12f));
+            }
+            else
+            {
+                SpawnLeftRightMovingObject(_gourgule, (int)(Screen.height * 0.15f));
+            }
         }
     }
 
-    void SpawnSimpleBird()
+    void SpawnLeftRightMovingObject(GameObject Object, int BorderOfScreen)
     {
         _delay = _random.Next(0, 3);
         int leftRight = _random.Next(0, 2);
-        int borderOfScreen = (int)(Screen.height * 0.1f); //TODO калибровать значения
+        int borderOfScreen = BorderOfScreen; //TODO калибровать значения
 
         int yCoord = (int)_random.Next(0 + borderOfScreen, Screen.height - borderOfScreen); //TODO ScreenWidthm, ScreenHeight.
-        var newObject = Instantiate(_simpleObject, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
+        var newObject = Instantiate(Object, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
 
         if (leftRight == 0)
@@ -68,8 +78,9 @@ public class SpawnManager : MonoBehaviour
     {
         var newObject = Instantiate(_clock, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
-        newObject.transform.position = new Vector3(_random.Next(0,Screen.width), _random.Next(0, Screen.height), 0);
+        newObject.transform.position = new Vector3(_random.Next((int)(Screen.width * 0.1f), Screen.width-(int)(Screen.width*0.1f)), _random.Next((int)(Screen.height*0.1f), Screen.height-(int)(Screen.height * 0.1f)), 0);
     }
 
+   
     
 }

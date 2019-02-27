@@ -10,7 +10,7 @@ public class Animation : MonoBehaviour
 #pragma warning disable 649
     [SerializeField] private GameObject _relative;
 #pragma warning restore 649
-    [SerializeField] float framesPerSecond = 10f;
+    [SerializeField] float framesPerSecond;
     [SerializeField] private float _rotationY;
 
     private Image _image;

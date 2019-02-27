@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class RightLeftMoving : MonoBehaviour
+public class GourguleMoving : MonoBehaviour 
 {
     public float HorizontalSpeed;
     public float ScalerOfSpeed;
 
     void Start()
     {
-        HorizontalSpeed = Screen.width/ScalerOfSpeed;
+        HorizontalSpeed = Screen.width / ScalerOfSpeed; //TODO сделать синусоидное движение мыфки
     }
 
     void FixedUpdate()

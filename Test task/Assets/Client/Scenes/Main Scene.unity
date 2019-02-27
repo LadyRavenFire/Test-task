@@ -1993,11 +1993,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7325e6fa4ff4ea4a8b1601d6b970ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _simpleObject: {fileID: 7995533745653642752, guid: bcdbeb03b9e764a4da3cbbc91c30aa44,
+  _simpleBird: {fileID: 7995533745653642752, guid: bcdbeb03b9e764a4da3cbbc91c30aa44,
     type: 3}
   _boomEffect: {fileID: 2115036805735369480, guid: 94dd9f1a8e6d51d44a5fab271a94afca,
     type: 3}
   _clock: {fileID: 3700544116273853092, guid: bb63d4e663297244aacebfe0aac15146, type: 3}
+  _gourgule: {fileID: 5277699932783289894, guid: 6f9a182419a873249b590a0dd55a1089,
+    type: 3}
   _mainCanvas: {fileID: 2082629331}
   _cornerCoordinates: {fileID: 0}
 --- !u!114 &1437913109
