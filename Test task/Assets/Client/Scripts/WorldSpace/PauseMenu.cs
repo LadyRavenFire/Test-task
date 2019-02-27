@@ -90,6 +90,7 @@ public class PauseMenu : MonoBehaviour
     {
         var objects = GameObject.FindGameObjectsWithTag("Deletable");
         GameObject.Find("MainCanvas").GetComponent<ClickManager>().DeleteStreak();
+        GameObject.Find("LevelManager").GetComponent<TimeStopper>().Clear();
 
         foreach (var objective in objects)
         {

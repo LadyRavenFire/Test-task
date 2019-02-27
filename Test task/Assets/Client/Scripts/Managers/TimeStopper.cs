@@ -5,12 +5,11 @@ public class TimeStopper : MonoBehaviour
     [SerializeField] private float _timeScale;
     [SerializeField] private float _howMuchStop;
     private float _stopperTime;
-    private bool flag;
+    private bool _flag;
 
     void Start()
     {
-        flag = false;
-        _stopperTime = 0f;
+       Clear();
     }
 
     void FixedUpdate()
@@ -20,16 +19,22 @@ public class TimeStopper : MonoBehaviour
             _stopperTime = _stopperTime - Time.fixedDeltaTime;
             Time.timeScale = _timeScale;
         }
-        else if(flag)
+        else if(_flag)
         {
-            flag = false;
+            _flag = false;
             Time.timeScale = 1f;
         }
     }
 
+    public void Clear()
+    {
+        _flag = false;
+        _stopperTime = 0f;
+    }
+
     public void TimeStopperStart()
     {
-        flag = true;
+        _flag = true;
         _stopperTime = 5f;
         Time.timeScale = _timeScale;
     }
