@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private Canvas _mainCanvas;
     
-    private Random _random;
+    public Random Random;
 
     private float _delay;
 
@@ -24,8 +24,8 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         _scoreManager = GameObject.Find("LevelManager").GetComponent<ScoreManager>();
-        _random = new Random();
-        _delay = _random.Next(0,3);
+        Random = new Random();
+        _delay = Random.Next(0,3);
     }
 
     void FixedUpdate()
@@ -45,30 +45,30 @@ public class SpawnManager : MonoBehaviour
             else if (score<30 && score >=20)
             {
                 SpawnLeftRightMovingObject(_simpleBird, (int)(Screen.height * 0.12f));
-                if (_random.Next(0, 4) == 0)
+                if (Random.Next(0, 4) == 0)
                 {
                     SpawnGhost();
                 }
             }
             else if(score>=30)
             {
-                if (_random.Next(0, 4) == 0)
+                if (Random.Next(0, 4) == 0)
                 {
                     SpawnLeftRightMovingObject(_simpleBird, (int)(Screen.height * 0.12f));
                 }
-                if (_random.Next(0, 3) == 0)
+                if (Random.Next(0, 3) == 0)
                 {
                     SpawnGhost();
                 }
                 SpawnLeftRightMovingObject(_gourgule, (int)(Screen.height * 0.15f));
             }
 
-            if (_random.Next(0, 10) == 0)
+            if (Random.Next(0, 10) == 0)
             {
                 SpawnMoreTime();
             }
 
-            if (_random.Next(0, 50)==0)     
+            if (Random.Next(0, 50)==0)     
             {
                 SpawnTimeStopper();
             }
@@ -77,11 +77,11 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnLeftRightMovingObject(GameObject Object, int BorderOfScreen)
     {
-        _delay = _random.Next(0, 3);
-        int leftRight = _random.Next(0, 2);
+        _delay = Random.Next(0, 3);
+        int leftRight = Random.Next(0, 2);
         int borderOfScreen = BorderOfScreen; //TODO калибровать значения
 
-        int yCoord = (int)_random.Next(0 + borderOfScreen, Screen.height - borderOfScreen); //TODO ScreenWidthm, ScreenHeight.
+        int yCoord = (int)Random.Next(0 + borderOfScreen, Screen.height - borderOfScreen); //TODO ScreenWidthm, ScreenHeight.
         var newObject = Instantiate(Object, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
 
@@ -109,8 +109,8 @@ public class SpawnManager : MonoBehaviour
         var newObject = Instantiate(_clock, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
         newObject.transform.position = new Vector3(
-            _random.Next((int)(Screen.width * 0.1f), Screen.width-(int)(Screen.width*0.1f)),
-            _random.Next((int)(Screen.height*0.1f), Screen.height-(int)(Screen.height * 0.1f)), 
+            Random.Next((int)(Screen.width * 0.1f), Screen.width-(int)(Screen.width*0.1f)),
+            Random.Next((int)(Screen.height*0.1f), Screen.height-(int)(Screen.height * 0.1f)), 
             0);
     }
 
@@ -119,8 +119,8 @@ public class SpawnManager : MonoBehaviour
         var newObject = Instantiate(_ghost, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
         newObject.transform.position = new Vector3(
-            _random.Next((int)(Screen.width * 0.3f), Screen.width - (int)(Screen.width * 0.3f)),
-            _random.Next((int)(Screen.height * 0.3f), Screen.height - (int)(Screen.height * 0.3f)),
+            Random.Next((int)(Screen.width * 0.3f), Screen.width - (int)(Screen.width * 0.3f)),
+            Random.Next((int)(Screen.height * 0.3f), Screen.height - (int)(Screen.height * 0.3f)),
             0);
     }
 
@@ -129,8 +129,8 @@ public class SpawnManager : MonoBehaviour
         var newObject = Instantiate(_timeStopper, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
         newObject.transform.position = new Vector3(
-            _random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
-            _random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
+            Random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
+            Random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
             0);
     }
 
@@ -139,8 +139,8 @@ public class SpawnManager : MonoBehaviour
         var newObject = Instantiate(_moreTime, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
         newObject.transform.position = new Vector3(
-            _random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
-            _random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
+            Random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
+            Random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
             0);
     }
    

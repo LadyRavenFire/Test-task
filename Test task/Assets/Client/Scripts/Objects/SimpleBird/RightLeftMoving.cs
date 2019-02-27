@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
+using Random = System.Random;
 
 public class RightLeftMoving : MonoBehaviour
 {
     public float HorizontalSpeed;
-    public float ScalerOfSpeed;
+    private int _scaler;
 
     void Start()
-    {
-        HorizontalSpeed = Screen.width/ScalerOfSpeed;
+    {        
+        HorizontalSpeed = Screen.width;
+        _scaler = GameObject.Find("LevelManager").GetComponent<SpawnManager>().Random.Next(170, 250);
+        HorizontalSpeed = HorizontalSpeed / _scaler;
+        
     }
 
     void FixedUpdate()

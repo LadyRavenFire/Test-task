@@ -2,7 +2,7 @@
 
 public class GourguleMoving : MonoBehaviour 
 {
-    public float HorizontalSpeed;
+    private float HorizontalSpeed;
     public float ScalerOfSpeed;
 
     void Start()
