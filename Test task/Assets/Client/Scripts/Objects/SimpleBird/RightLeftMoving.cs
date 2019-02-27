@@ -2,9 +2,7 @@
 
 public class RightLeftMoving : MonoBehaviour
 {
-    public bool IsLeft;
     public float HorizontalSpeed;
-    public float VerticalSpeed;
 
     void Start()
     {
@@ -13,7 +11,7 @@ public class RightLeftMoving : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsLeft)
+        if (gameObject.GetComponent<IsLeftMoving>().IsLeft)
         {
             Vector3 position = new Vector3(gameObject.transform.position.x - HorizontalSpeed, gameObject.transform.position.y, gameObject.transform.position.z);
             gameObject.transform.position = position;

@@ -31,11 +31,11 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            SpawnBird();
+            SpawnSimpleBird();
         }
     }
 
-    void SpawnBird()
+    void SpawnSimpleBird()
     {
         _delay = _random.Next(0, 3);
         int leftRight = _random.Next(0, 2);
@@ -52,8 +52,8 @@ public class SpawnManager : MonoBehaviour
         else
         {
             newObject.transform.position = new Vector3(-(Screen.width * 0.1f), yCoord, 0);
-            RightLeftMoving rightLeftMoving = newObject.GetComponent<RightLeftMoving>();
-            rightLeftMoving.IsLeft = false;
+            IsLeftMoving IsLeftMoving = newObject.GetComponent<IsLeftMoving>();
+            IsLeftMoving.IsLeft = false;
         }
     }
 

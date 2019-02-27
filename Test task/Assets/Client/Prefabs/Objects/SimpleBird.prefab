@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7995533745653642756}
   - component: {fileID: 7995533745653642757}
   - component: {fileID: 7995533745653642758}
+  - component: {fileID: 1011577587371430231}
   m_Layer: 5
   m_Name: SimpleBird
   m_TagString: Deletable
@@ -102,9 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfe46c0702939d49b06f17d983aed6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsLeft: 1
   HorizontalSpeed: 0
-  VerticalSpeed: 0
 --- !u!114 &7995533745653642758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +116,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce66e16c4e67ed43b52bfed56aa46e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1011577587371430231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995533745653642752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3e94080f0766444a27beb8b2b0aeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsLeft: 1
 --- !u!1 &7995533746261596080
 GameObject:
   m_ObjectHideFlags: 0

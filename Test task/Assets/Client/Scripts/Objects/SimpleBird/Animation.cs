@@ -15,11 +15,11 @@ public class Animation : MonoBehaviour
 
     private Image _image;
 
-    private RightLeftMoving _rightLeftMoving;
+    private IsLeftMoving _IsLeftMoving;
 
     void Start()
     {
-        _rightLeftMoving = _relative.GetComponent<RightLeftMoving>();
+        _IsLeftMoving = _relative.GetComponent<IsLeftMoving>();
         _image = gameObject.GetComponent<Image>();
         _rotationY = gameObject.transform.rotation.y;
 
@@ -35,7 +35,7 @@ public class Animation : MonoBehaviour
 
     public void Rotation()
     {
-        if (_rightLeftMoving.IsLeft)
+        if (_IsLeftMoving.IsLeft)
         {
             if (_rotationY == gameObject.transform.rotation.y)
             {
