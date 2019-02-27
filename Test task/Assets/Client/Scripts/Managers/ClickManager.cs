@@ -78,6 +78,24 @@ public class ClickManager : MonoBehaviour
                     break;
                 }
 
+                if (result.gameObject.name.Contains("MoreTime"))
+                {
+                    result.gameObject.GetComponent<DeleteOnClick>().Destroy();
+                    _timeManager.AddTime(2);
+                    _clickAudioManager.ClickOnClock();
+                    IsOnClicable = true;    
+                    break;
+                }
+
+                if (result.gameObject.name.Contains("TimeStopper"))
+                {
+                    result.gameObject.GetComponent<DeleteOnClick>().Destroy();
+                    GameObject.Find("LevelManager").GetComponent<TimeStopper>().TimeStopperStart();
+                    _clickAudioManager.ClickOnClock();
+                    IsOnClicable = true;
+                    break;
+                }
+
                 if (result.gameObject.name.Contains("Gourgule"))
                 {
                     result.gameObject.GetComponent<DeleteOnClick>().Destroy();
@@ -104,17 +122,22 @@ public class ClickManager : MonoBehaviour
 
             if (!IsOnClicable)
             {
-                _streak = 0;
+                DeleteStreak();
                 _streakSlider.value = _streak;
             }
 
             if (_streak == 5)
             {
                 _spawnManager.SpawnClock();
-                _streak = 0;
+                DeleteStreak();
                 _streakSlider.value = _streak; 
             }
             
         }
+    }
+
+    public void DeleteStreak()
+    {
+        _streak = 0;
     }
 }

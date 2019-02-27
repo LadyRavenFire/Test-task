@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8744593994265285160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8744593994265285161}
+  - component: {fileID: 8744593994265285154}
+  - component: {fileID: 8744593994265285165}
+  - component: {fileID: 8744593994265285164}
+  - component: {fileID: 8744593994265285167}
+  - component: {fileID: 8744593994265285166}
+  m_Layer: 5
+  m_Name: TimeStopper
+  m_TagString: Deletable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8744593994265285161
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744593994265285160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.40625003, y: 0.34}
+  m_AnchorMax: {x: 0.47250003, y: 0.46444443}
+  m_AnchoredPosition: {x: -0.099998474, y: -0.40000153}
+  m_SizeDelta: {x: -0.8600006, y: -0.08000183}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8744593994265285154
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744593994265285160}
+  m_CullTransparentMesh: 0
+--- !u!114 &8744593994265285165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744593994265285160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 8da0d82a7e193de4aa6f6c79c6f98b23, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &8744593994265285164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744593994265285160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b064a8e968b9494aae2f99589ab55eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8744593994265285167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744593994265285160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d168d244fee0b42b9fde3d3e5b6939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frames:
+  - {fileID: 21300000, guid: 8da0d82a7e193de4aa6f6c79c6f98b23, type: 3}
+  - {fileID: 21300000, guid: 090a2ff642c10a54caa1448e8f3a6e9a, type: 3}
+  - {fileID: 21300000, guid: 806f15133af77304ea6127f9a826771e, type: 3}
+  - {fileID: 21300000, guid: 8bf3747e414a1c34884a55c1eb788a69, type: 3}
+  - {fileID: 21300000, guid: 38b08c69d803c64469af96f4b2aaee07, type: 3}
+  - {fileID: 21300000, guid: 8a93c44b4465c2549a6d434fcb722db1, type: 3}
+  - {fileID: 21300000, guid: bcb8e82a7dcbc0648abf1d869ee15e13, type: 3}
+  - {fileID: 21300000, guid: fb81ec8026c2ea3449cf5f295103d86e, type: 3}
+  - {fileID: 21300000, guid: 933c25c7cea610743913f59601a2c0c1, type: 3}
+  - {fileID: 21300000, guid: c0e141d2fcf656743bdbdf569ed370b7, type: 3}
+  - {fileID: 21300000, guid: 40f58e8165e034244ba00208c58c0f05, type: 3}
+  framesPerSecond: 10
+--- !u!114 &8744593994265285166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744593994265285160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6954a4f5bcd3d4d903482129ee53ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBeforeDestroy: 4

@@ -8,6 +8,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject _clock;
     [SerializeField] private GameObject _gourgule;
     [SerializeField] private GameObject _ghost;
+    [SerializeField] private GameObject _moreTime;
+    [SerializeField] private GameObject _timeStopper;
 
     private ScoreManager _scoreManager;
 
@@ -60,7 +62,16 @@ public class SpawnManager : MonoBehaviour
                 }
                 SpawnLeftRightMovingObject(_gourgule, (int)(Screen.height * 0.15f));
             }
-            
+
+            if (_random.Next(0, 10) == 0)
+            {
+                SpawnMoreTime();
+            }
+
+            if (_random.Next(0, 50)==0)     
+            {
+                SpawnTimeStopper();
+            }
         }
     }
 
@@ -93,7 +104,7 @@ public class SpawnManager : MonoBehaviour
         newObject.transform.position = new Vector3(place.x, place.y, 0);
     }
 
-    public void SpawnClock()
+    public void SpawnClock() //TODO рефаторнуть и свернуть в одну функцию все ниже
     {
         var newObject = Instantiate(_clock, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
         newObject.transform.SetParent(_mainCanvas.transform, false);
@@ -113,6 +124,25 @@ public class SpawnManager : MonoBehaviour
             0);
     }
 
+    public void SpawnTimeStopper()
+    {
+        var newObject = Instantiate(_timeStopper, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
+        newObject.transform.SetParent(_mainCanvas.transform, false);
+        newObject.transform.position = new Vector3(
+            _random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
+            _random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
+            0);
+    }
+
+    public void SpawnMoreTime()
+    {
+        var newObject = Instantiate(_moreTime, new Vector3(10, 10, 0), Quaternion.identity) as GameObject;
+        newObject.transform.SetParent(_mainCanvas.transform, false);
+        newObject.transform.position = new Vector3(
+            _random.Next((int)(Screen.width * 0.1f), Screen.width - (int)(Screen.width * 0.1f)),
+            _random.Next((int)(Screen.height * 0.1f), Screen.height - (int)(Screen.height * 0.1f)),
+            0);
+    }
    
     
 }

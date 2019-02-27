@@ -1960,6 +1960,7 @@ GameObject:
   - component: {fileID: 1437913110}
   - component: {fileID: 1437913111}
   - component: {fileID: 1437913112}
+  - component: {fileID: 1437913113}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2001,6 +2002,10 @@ MonoBehaviour:
   _gourgule: {fileID: 5277699932783289894, guid: 6f9a182419a873249b590a0dd55a1089,
     type: 3}
   _ghost: {fileID: 3768406740557493436, guid: 3ba21a2c763d743428d9b8244d2318b4, type: 3}
+  _moreTime: {fileID: 7911773798522773045, guid: 3be6e042b739d6740a2f3df6a7e1e66a,
+    type: 3}
+  _timeStopper: {fileID: 8744593994265285160, guid: a1237f094c2b2ed47b4c9dc4be2ff3ed,
+    type: 3}
   _mainCanvas: {fileID: 2082629331}
 --- !u!114 &1437913109
 MonoBehaviour:
@@ -2070,6 +2075,20 @@ MonoBehaviour:
   _scoreManager: {fileID: 1437913110}
   _timeManager: {fileID: 1437913109}
   _Lose: {fileID: 1437913111}
+--- !u!114 &1437913113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437913106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a799c0a022c73d4ca6857795d867b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeScale: 0.5
+  _howMuchStop: 5
 --- !u!1 &1452881155
 GameObject:
   m_ObjectHideFlags: 0

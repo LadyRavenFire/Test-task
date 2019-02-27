@@ -27,6 +27,7 @@ public class Lose : MonoBehaviour
     public void LoseGame(int score)
     {       
         Time.timeScale = 0f;
+        GameObject.Find("LevelManager").GetComponent<ClickManager>().DeleteStreak();
         DeleteObjects();
         _losePanel.SetActive(true);
         _losePanel.transform.SetAsLastSibling();
